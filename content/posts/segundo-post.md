@@ -1,7 +1,22 @@
 ---
-title: "Introdução a Visualização de dados com ggplot2"
-date: 2020-02-05T20:56:46-03:00
+title: "Rmarkdown e ggplot2"
+date: 2018-10-28T20:56:46-03:00
+draft: true
 ---
+`Esse trabalho foi inspirado no trabalho de Allan Robert, (all_robert02@yahoo.com.br) e adaptado para um minicurso ministrado na Universidade Federal de Campina Grande sobre Rmarkdown e ggplot2 pelo PET-Matemática e Estistica da UFCG. `
+
+
+Uma das características mais desejáveis em pesquisa científica e análise de dados é a sua reprodutibilidade. É importante que os métodos estatísticos aplicados sejam auditados independentemente por outras pessoas.
+
+Entretanto, para que o trabalho possa ser lido, compreendido e reproduzido, é fundamental que, além do código, nosso fluxo de pensamento também possa ser documentado. Em alguns casos, apenas os comentários distribuídos com o código podem não ser suficientes para garantir a compreensão do trabalho realizado.
+
+Este curso mostra como podemos utilizar a linguagem RMarkdown para juntar R e LaTeX, com o intuito de automatizar a geração de relatórios. O pacote knitr vai ser utilizado para inserir, diretamente a partir do R, tabelas e gráficos em um documento. O minicurso será totalmente aplicado, pois os alunos irão aprender R Markdown enquanto praticam os ensinamentos no RStudio.
+
+
+
+## Rmarkdown
+
+
 
 Objetivo
 ========

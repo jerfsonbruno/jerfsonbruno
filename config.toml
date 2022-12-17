@@ -7,7 +7,7 @@ theme = "loveIt"
 # 主题目录
 # website title
 # 网站标题
-title = "LoveIt"
+title = "Jerfson Bruno"
 
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
 # 设置默认的语言 ["en", "zh-cn", "fr", "pl", ...]
@@ -70,6 +70,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # title will be shown when you hover on this menu link
     # 当您将鼠标悬停在此菜单链接上时, 将显示标题
     title = ""
+    [[menu.main]]
+      weight = 2
+      identifier = "sobre"
+      pre = ""
+      post = ""
+      name = "Sobre"
+      url = "/sobre/"
+      title = ""
 
 
 [params]
@@ -182,7 +190,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-    title = "ainda nao sei"
+    title = "Jerfson Bruno"
     # whether to omit favicon resource links
     # 是否隐藏网站图标资源链接
     noFavicon = false
@@ -259,7 +267,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       social = true
       # disclaimer (HTML format is supported)
       # 免责声明 (支持 HTML 格式)
-      disclaimer = "Esses projetos são feitos para que eu possa maximizar e compartilhar minhas experiências acadêmicas em análise de dados, modelagem estatística e aprendizado de máquina.\n \n Atualmente sou Doutorando em Estatística pela UFPE com linha de pesquisa em análise de dados espaciais."
+      disclaimer = "Esses projetos são feitos para que eu possa maximizar e compartilhar minhas experiências acadêmicas em análise de dados, modelagem estatística e aprendizado de máquina.\n \n E claro, sempre que possível irei compartilhar os códigos em R (algumas vezes em python e Ox também).."
     # Home page posts
     # 主页文章列表
     [params.home.posts]
@@ -333,7 +341,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
-      enable = false
+      enable = true
       # default inline delimiter is $ ... $ and \( ... \)
       # 默认行内定界符是 $ ... $ 和 \( ... \)
       inlineLeftDelimiter = ""

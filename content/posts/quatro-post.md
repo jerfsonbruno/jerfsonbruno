@@ -1,10 +1,12 @@
 ---
-title: "Detecção de Câncer de Mama"
+title: "Detecção de câncer de mama"
 date: 2020-02-13T21:45:46-03:00
+draft: true
 ---
 
-Introdução
-==========
+`Encontrei essa base de dados no Kaggle e achei interessante usar o Random Florest, um dos algoritmos mais famosos de classificação supervisionada. Quem sabe com a constante evolução dos algoritmos de classificação, eles possam ser implantados nos hospitais públicos e privados. `
+
+## Introdução
 
 O principal objetivo deste texto é mostrar como é possível, utilizando
 apenas recursos gratuitos da internet, realizar um projeto de data
@@ -16,8 +18,7 @@ Há diversas atividades que podem ser feitas com este conjunto de dados.
 O que farei aqui é tentar prever corretamente qual o tipo de câncer
 mamário (maligno ou benigno) dado algumas observações.
 
-O que é Nódulo na mama?
------------------------
+## O que é Nódulo na mama?
 
 Nódulo de mama é definido pela presença de tumoração (ou massa palpável)
 no tecido mamário, podendo ter conteúdo líquido (cístico) ou sólido. A
@@ -37,7 +38,7 @@ Os nódulos mamários podem ser divididos em sólidos ou císticos.
 
 Os nódulos sólidos podem ser benignos ou cancerígenos. Eles são
 avaliados de acordo com a forma e velocidade de crescimento. As lesões
-com margens irregulares ou espiculadas são as mais suspeitas para
+com margens irregulares são as mais suspeitas para
 câncer. Já aquelas com margens regulares e crescimento lento geralmente
 são benignas.
 
@@ -48,8 +49,7 @@ Os cistos são causados por alterações normais do tecido mamário. A única
 situação preocupante neste caso é quando existe conteúdo sólido
 (vegetação) dentro de um cisto.
 
-Dados
-=====
+## Dados
 
 O conjunto de dados trata-se sobre o estudo de câncer, onde ele
 discrimina nódulos mamários malignos e benignos. O conjunto de dados
@@ -75,11 +75,10 @@ Variáveis do estudo:
 -   Classe (2 para benigno, 4 para maligno)
 
 Esse banco de dados está disponível no Repositório de Aprendizado de
-Máquina da UCI:
-<a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29" class="uri">https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29</a>
+Máquina da UCI: [Kaggle](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29)
 
-Análise Exploratória dos Dados
-==============================
+## Análise Exploratória dos Dados
+
 
 Como não poderia deixar de ser, a primeira parte de um projeto de data
 science segue a mesma lógica de um projeto de análise estatística de
@@ -181,30 +180,12 @@ quantitativa e dados faltantes podem influenciar na autocorrelação).
 
 ``` r
 library(dplyr)
-```
-
-    ##
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ##
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ##
-    ##     intersect, setdiff, setequal, union
-
-``` r
 library(corrplot)
-```
-
-    ## corrplot 0.84 loaded
-
-``` r
 bc <- bc[-which(is.na(bc$nucleo)),]
 correlacao <- cor(bc[, -10], method="spearman", use="complete.obs")
 corrplot.mixed(correlacao, upper = "ellipse")
 ```
+
 
 ![](cancer_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
@@ -249,16 +230,6 @@ utilizar a função ggpairs do pacote GGally:
 
 ``` r
 library(GGally)
-```
-
-    ##
-    ## Attaching package: 'GGally'
-
-    ## The following object is masked from 'package:dplyr':
-    ##
-    ##     nasa
-
-``` r
 ggpairs(bc[, -10], aes(colour = bc$classificacao))
 ```
 
@@ -312,8 +283,8 @@ Uma Random Forest (ou Floresta Aleatória) é a combinação de centenas de
 combinação de diversos modelos diferentes é melhor do que um modelo
 sozinho.
 
-Conjuntos de Treino e Teste
-===========================
+### Conjuntos de Treino e Teste
+
 
 Um problema que surge no ajuste de modelos de classificação e regressão
 é o sobreajuste. O sobreajuste ocorre quando o modelo se ajusta muito
@@ -343,13 +314,9 @@ ajuste.
 Para fazer isto no R utilizamos a função createDataPartition do pacote
 caret.
 
+
 ``` r
 library(caret)
-```
-
-    ## Loading required package: lattice
-
-``` r
 trainIndex <- createDataPartition(bc$classificacao, p = 0.75, list = FALSE)
 cancer_treino <- bc[trainIndex, ]
 cancer_teste <- bc[-trainIndex, ]
@@ -365,8 +332,8 @@ E, com menos dados para ajustar o modelo, menos informação temos. Com
 menos informação, pior ficará nosso modelo. Uma maneira de reduzir este
 efeito é através da validação cruzada.
 
-Validação Cruzada
------------------
+## Validação Cruzada
+
 
 A validação cruzada é mais um método utilizado para evitar sobreajuste
 no modelo. A ideia é ajustar diversas vezes o mesmo modelo em partições
@@ -399,8 +366,8 @@ parâmetro de acordo com o conjunto de dados que estamos estudando.
 Com estas técnicas definidas, podemos finalmente passar para o ajuste do
 modelo.
 
-Ajuste do Modelo
-----------------
+## Ajuste do Modelo
+
 
 Como dito anteriormente, vamos ajustar um modelo chamado Random Forest
 aos dados do tipo de câncer. Para realizar este ajuste precisamos criar
