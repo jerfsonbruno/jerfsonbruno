@@ -70,14 +70,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # title will be shown when you hover on this menu link
     # 当您将鼠标悬停在此菜单链接上时, 将显示标题
     title = ""
-    [[menu.main]]
-      weight = 2
-      identifier = "sobre"
-      pre = ""
-      post = ""
-      name = "Sobre"
-      url = "/sobre/"
-      title = ""
+  #  [[menu.main]]
+  #    weight = 2
+  #    identifier = "sobre"
+  #    pre = ""
+  #    post = ""
+  #    name = "Sobre"
+  #    url = "/sobre/"
+  #    title = ""
 
 
 [params]
@@ -267,7 +267,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       social = true
       # disclaimer (HTML format is supported)
       # 免责声明 (支持 HTML 格式)
-      disclaimer = "Esses projetos são feitos para que eu possa maximizar e compartilhar minhas experiências acadêmicas em análise de dados, modelagem estatística e aprendizado de máquina.\n \n E claro, sempre que possível irei compartilhar os códigos em R (algumas vezes em python e Ox também).."
+      disclaimer = "Esses projetos são feitos para que eu possa maximizar e compartilhar minhas experiências acadêmicas em análise de dados, modelagem estatística e aprendizado de máquina.\n \n E claro, sempre que possível irei compartilhar os códigos em R (algumas vezes em python e Ox também)."
     # Home page posts
     # 主页文章列表
     [params.home.posts]
