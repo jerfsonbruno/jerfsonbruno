@@ -70,15 +70,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # title will be shown when you hover on this menu link
     # 当您将鼠标悬停在此菜单链接上时, 将显示标题
     title = ""
-  #  [[menu.main]]
-  #    weight = 2
-  #    identifier = "sobre"
-  #    pre = ""
-  #    post = ""
-  #    name = "Sobre"
-  #    url = "/sobre/"
-  #    title = ""
-
+    [[menu.main]]
+      weight = 2
+      identifier = "sobre"
+      pre = ""
+      post = ""
+      name = "Sobre"
+      url = "/sobre/sobremim"
+      title = ""
 
 [params]
   # site default theme ["auto", "light", "dark"]
